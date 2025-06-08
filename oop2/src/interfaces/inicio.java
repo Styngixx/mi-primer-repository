@@ -5,8 +5,9 @@
 package interfaces;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import interfaces.*;
 import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -16,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author FRANCIS
  */
-public class inicio extends javax.swing.JFrame {
+public final class inicio extends javax.swing.JFrame {
 
         int xMouse, yMouse;
     /**
@@ -24,8 +25,13 @@ public class inicio extends javax.swing.JFrame {
      */
     public inicio() {
         initComponents();
+        //setear el logo
         this.setLocationRelativeTo(this);
         SetImageLabel(logo, "src/images/logo_empresa.jpeg");
+        //setear el logo en la barra d tareas
+        setIconImage(getIconImage());
+//        setLabel(logo, "src/images/logo_POO.jpg");
+        
         consulta c = new consulta();
         
 //        c.setVisible(true);
@@ -37,6 +43,15 @@ public class inicio extends javax.swing.JFrame {
         contenido.revalidate();
         contenido. repaint();      
     }
+    
+    //Icono de Jframe form
+    @Override
+        public Image getIconImage () {
+        Image retValue = Toolkit.getDefaultToolkit().getImage
+                                (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
+        return retValue;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,8 +138,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel1.setText("LEFT4TECH");
         fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 110, 40));
 
-        logo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -133,10 +146,10 @@ public class inicio extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+            .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
-        fondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 70));
+        fondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 80));
 
         jButton4.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
         jButton4.setText("Reportes");
@@ -310,13 +323,14 @@ public class inicio extends javax.swing.JFrame {
         });
     }
 
-    public void setImage (JLabel labelname, String root){
-        ImageIcon image = new ImageIcon();
+    private void SetImageLabel(JLabel label, String root){
+        ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(
-        image.getImage().getScaledInstance(labelname.getWidth(), labelname.getHeight(), Image.SCALE_DEFAULT));
-        labelname.setIcon(icon);
+                           image.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+        label.setIcon(icon);
         this.repaint();
-    }
+    }    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bt;
     private javax.swing.JPanel contenido;
@@ -332,7 +346,4 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel txtX;
     // End of variables declaration//GEN-END:variables
 
-    private void SetImageLabel(JLabel logo, String srcimageslogo_empresajpeg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
