@@ -4,9 +4,11 @@
  */
 package login;
 //import metodo.metodo;
-
+import interfaces.inicio;
+import javax.swing.JOptionPane;
 import java.awt.Color;
-import java.util.ArrayList;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -22,11 +24,17 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        setTitle("LOGIN");
         initComponents();
+        setIconImage(getIconImage());
         // para mas adelante :)
          //me.setimagenLabel(back, "src/com/image/fondo2.poo.jpg");
         
+    }
+        @Override
+        public final  Image getIconImage () {
+        Image retValue = Toolkit.getDefaultToolkit().getImage
+                                (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
+        return retValue;
     }
 
     /**
@@ -155,8 +163,14 @@ public class Login extends javax.swing.JFrame {
                 headerMouseDragged(evt);
             }
         });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
+            }
+        });
 
-        txtX.setBackground(new java.awt.Color(255, 255, 255));
+        bt.setBackground(new java.awt.Color(255, 255, 255));
+
         txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtX.setText("X");
         txtX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -176,11 +190,13 @@ public class Login extends javax.swing.JFrame {
         bt.setLayout(btLayout);
         btLayout.setHorizontalGroup(
             btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+            .addComponent(txtX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
         );
         btLayout.setVerticalGroup(
             btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtX, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
@@ -188,12 +204,12 @@ public class Login extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addGap(0, 487, Short.MAX_VALUE)
+                .addGap(0, 488, Short.MAX_VALUE)
                 .addComponent(bt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 30));
@@ -215,54 +231,25 @@ public class Login extends javax.swing.JFrame {
     // se almacena la pocision del eje x, y desde la variable (evt) del metedo
     private void bgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMousePressed
         // TODO add your handling code here:
-     xMouse = evt.getX();
-     yMouse = evt.getY();
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_bgMousePressed
 
-    // sirve para cuando el mouse es arrastrado para establecer 
-    // la localizacion de la ventana en el eje seleccionado
-    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
-        // TODO add your handling code here:
-        // sirve para mover la ventana a donde queramos con el mouse 
-//        int x = evt.getXOnScreen();
-//        int y = evt.getYOnScreen();
-//        
-//        this.setLocation(x - xMouse, y - yMouse);
-    int x = evt.getXOnScreen(), y =evt.getYOnScreen();
-    this.setLocation( x- xMouse, y - yMouse);
-    }//GEN-LAST:event_headerMouseDragged
-
-    // para hacer un pane como boton
-    private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
-        // TODO add your handling code here:
-        dispose();
-       //System.exit(0);
-    }//GEN-LAST:event_txtXMouseClicked
-
-    // para que el mouse entre en el pane y de un efecto de color rojo y la x blanco
-    private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
-        // TODO add your handling code here:
-        bt.setBackground(Color.red);
-        txtX.setForeground(Color.white);
-    }//GEN-LAST:event_txtXMouseEntered
-
-    // para que el efecto desaparezca
-    private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
-        // TODO add your handling code here:
-        bt.setBackground(Color.white);
-       txtX.setForeground(Color.black);
-        
-    }//GEN-LAST:event_txtXMouseExited
-
     // cuando le den click al pane entrar aparezca un JOptionpane de emergencia con los datos
+    //tambien entre al programa y posterior se cierre la interfaz de login :)
     private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
         // TODO add your handling code here:
        //esperaaaaaa 
-        javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos: "
-                + "\nUsuario: " + user.getText() 
-                + "\nContraseña: " + String.valueOf(password.getPassword()),
-                "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE );
+//        JOptionPane.showMessageDialog(this, """
+//                                                        Intento de login con los datos: 
+//                                                        Usuario: """ + user.getText() 
+//                + "\nContraseña: " + String.valueOf(password.getPassword()),
+//                "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE );
 
+        JOptionPane.showMessageDialog(this, "SESION EXITOSA");
+        inicio Inicio_Ventana = new inicio();
+        Inicio_Ventana.setVisible(true);
+        dispose();
     }//GEN-LAST:event_entrarMouseClicked
 
     //cuando el mouse entra al pane el color cambie 
@@ -313,6 +300,35 @@ public class Login extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_txtXMouseClicked
+
+    private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
+        // TODO add your handling code here:
+        bt.setBackground(Color.red);
+        txtX.setForeground(Color.white);
+    }//GEN-LAST:event_txtXMouseEntered
+
+    private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
+        // TODO add your handling code here:
+        bt.setBackground(Color.white);
+        txtX.setForeground(Color.black);
+    }//GEN-LAST:event_txtXMouseExited
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen(), y =evt.getYOnScreen();
+        this.setLocation( x- xMouse, y - yMouse);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
     /**
      * @param args the command line arguments
      */

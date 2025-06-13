@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author FRANCIS
  */
 public class Conexion {
-        String db="left4tech";
+    String db="left4tech";
     String user="root";
     String password="Chap04";
     String url="jdbc:mysql://localhost:3306/";
@@ -27,7 +27,7 @@ public class Conexion {
         try {
             Class.forName(driver);
             conn= DriverManager.getConnection(url+db, user, password);
-            JOptionPane.showMessageDialog(null, "Se conecto a "+db);
+//            JOptionPane.showMessageDialog(null, "Se conecto a "+db);
         } catch (SQLException |ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
