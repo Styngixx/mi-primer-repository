@@ -4,12 +4,13 @@
  */
 package interfaces;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
-//import interfaces.Obsequios_;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,6 +19,8 @@ import javax.swing.JPanel;
  * @author FRANCIS
  */
 public final class inicio extends javax.swing.JFrame {
+
+// y así con los que uses
 
         int xMouse, yMouse;
     /**
@@ -31,17 +34,11 @@ public final class inicio extends javax.swing.JFrame {
         //setear el logo en la barra d tareas
         setIconImage(getIconImage());
 //        setLabel(logo, "src/images/logo_POO.jpg");
-        
+        CardLayout cardLayout = new CardLayout();
+        JPanel mainPanel = new JPanel(cardLayout);
+
         lista lista = new lista();
-        
-//        c.setVisible(true);
-        lista.setSize(420, 420);
-        lista.setLocation(0,0);
-        
-        contenido.removeAll();
-        contenido.add(lista, BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido. repaint();      
+        mostrarPanel(lista);
     }
     
     //Icono de Jframe form
@@ -89,7 +86,7 @@ public final class inicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel1.setText("LEFT4TECH");
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 110, 40));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, 40));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -105,7 +102,7 @@ public final class inicio extends javax.swing.JFrame {
         fondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 80));
 
         jButton4.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        jButton4.setText("Reportes");
+        jButton4.setText("Ajuste");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton4.setBorderPainted(false);
         jButton4.setFocusPainted(false);
@@ -120,14 +117,14 @@ public final class inicio extends javax.swing.JFrame {
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
-        fondo.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 420, 420));
+        fondo.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 810, 460));
 
         labelConsultar.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
         labelConsultar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -157,7 +154,7 @@ public final class inicio extends javax.swing.JFrame {
         fondo.add(panelConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
 
         jButton1.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        jButton1.setText("Ajustes");
+        jButton1.setText("Obsequios");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +211,7 @@ public final class inicio extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addGap(0, 488, Short.MAX_VALUE)
+                .addGap(0, 908, Short.MAX_VALUE)
                 .addComponent(bt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
@@ -222,7 +219,7 @@ public final class inicio extends javax.swing.JFrame {
             .addComponent(bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 30));
+        fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 30));
 
         labelLista.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
         labelLista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -274,11 +271,15 @@ public final class inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,7 +290,7 @@ public final class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void mostrarPanel(JPanel p){
-        p.setSize(420, 420);
+        p.setSize(810, 460);
         p.setLocation(0,0);
         
         contenido.removeAll();
@@ -305,7 +306,7 @@ public final class inicio extends javax.swing.JFrame {
 
     private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
         // TODO add your handling code here:
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_txtXMouseClicked
 
     private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
@@ -318,10 +319,16 @@ public final class inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         bt.setBackground(Color.white);
         txtX.setForeground(Color.black);
+        
     }//GEN-LAST:event_txtXMouseExited
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         // TODO add your handling code here:
+        // sirve para mover la ventana a donde queramos con el mouse
+        //        int x = evt.getXOnScreen();
+        //        int y = evt.getYOnScreen();
+        //
+        //        this.setLocation(x - xMouse, y - yMouse);
         int x = evt.getXOnScreen(), y =evt.getYOnScreen();
         this.setLocation( x- xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged

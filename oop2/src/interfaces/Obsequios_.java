@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import clases.obsequios;
+
+//import clases.obsequios;
 import java.awt.Color;
 import java.awt.Image;
 //import java.awt.event.FocusAdapter;
@@ -12,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 //import javax.swing.JTextField;
 
 /**
@@ -31,6 +33,16 @@ public class Obsequios_ extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         SetImageLabel(logo, "src/images/logo_empresa.jpeg");
+        cargarObsequiosGuardados();
+    }
+    
+// cargar obsequios previamente guardados
+    private void cargarObsequiosGuardados (){
+        if(obsequiosDatos.osequiosConfigurados()){
+            txtObsequio1.setText(obsequiosDatos.getObsequio1());
+            txtObsequio2.setText(obsequiosDatos.getObsequio2());
+            txtObsequio3.setText(obsequiosDatos.getObsequio3());
+        }
     }
 
     /**
@@ -291,16 +303,41 @@ public class Obsequios_ extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         // Guardar en el objeto usando el constructor
-        obsequios obsequios = new obsequios("", "", "");
-        //ahora seteamos los valores que el usuario ingreso
-        obsequios.setObsequio1(txtObsequio1.getText());
-        obsequios.setObsequio2(txtObsequio2.getText());
-        obsequios.setObsequio3(txtObsequio3.getText());  
-        // Confirmación
-        JOptionPane.showMessageDialog(this, "¡Obsequios guardados!");
-        dispose();
+//        obsequios obsequios = new obsequios("", "", "");
+//        //ahora seteamos los valores que el usuario ingreso
+//        obsequios.setObsequio1(txtObsequio1.getText());
+//        obsequios.setObsequio2(txtObsequio2.getText());
+//        obsequios.setObsequio3(txtObsequio3.getText());  
+//        // Confirmación
+//        JOptionPane.showMessageDialog(this, "¡Obsequios guardados!");
+//        dispose();
+        //validar que los campos esten completos xdd
+        String obs1 = txtObsequio1.getText().trim();
+        String obs2 = txtObsequio2.getText().trim();
+        String obs3 = txtObsequio3.getText().trim();
+        
+        if(obs1.isEmpty() || obs2.isEmpty() || obs3.isEmpty()){
+            JOptionPane.showMessageDialog(this,
+                "Por favor, complete todos los obsequios antes de guardar.",
+                "Campos vacíos",
+                JOptionPane.WARNING_MESSAGE);
+         return;
+        }
+        
+        obsequiosDatos.setTodosObsequios(obs1, obs2, obs3);
+        JOptionPane.showMessageDialog(this, """
+                                            \u00a1Obsequios guardados correctamente!
+                                            
+                                            Obsequio 1 unidad: """ + obs1 + "\n" +
+            "Obsequio 2-5 unidades: " + obs2 + "\n" +
+            "Obsequio +5 unidades: " + obs3, "Obsequios Guardados",
+            JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

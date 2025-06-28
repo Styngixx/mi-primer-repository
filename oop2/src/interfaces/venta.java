@@ -4,20 +4,30 @@
  */
 package interfaces;
 
+import interfaces.obsequiosDatos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.*;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import metodo.Conexion;
 
 /**
  *
  * @author FRANCIS
  */
 public class venta extends javax.swing.JPanel {
-
+    Conexion conexion = new Conexion();
+    Connection conn;
+    
+//    private String error = "HUBO UN ERROR"; 
     /**
      * Creates new form venta
      */
     public venta() {
         initComponents();
+        conn= conexion.conectar();
+        cargarLista();
     }
 
     /**
@@ -46,7 +56,7 @@ public class venta extends javax.swing.JPanel {
 
         labelModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         labelModelo.setText("Modelo");
-        jPanel1.add(labelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, -1));
+        jPanel1.add(labelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, -1));
 
         cbLista.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         cbLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -55,28 +65,36 @@ public class venta extends javax.swing.JPanel {
                 cbListaActionPerformed(evt);
             }
         });
-        jPanel1.add(cbLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 150, 30));
+        jPanel1.add(cbLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 260, -1));
 
         labelPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         labelPrecio.setText("Precio(S/)");
-        jPanel1.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, 20));
+        jPanel1.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 80, 20));
 
         txtPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         txtPrecio.setEnabled(false);
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 150, -1));
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 240, -1));
 
         labelCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         labelCantidad.setText("Cantidad");
-        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
+        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 70, 20));
 
         txtCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 150, -1));
+        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 240, -1));
 
+        txtBoleta.setEditable(false);
         txtBoleta.setColumns(20);
+        txtBoleta.setForeground(new java.awt.Color(0, 0, 0));
         txtBoleta.setRows(5);
+        txtBoleta.setEnabled(false);
         scroll.setViewportView(txtBoleta);
 
-        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 370, 200));
+        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 680, 240));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -92,7 +110,9 @@ public class venta extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +121,7 @@ public class venta extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 80, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -117,13 +137,88 @@ public class venta extends javax.swing.JPanel {
 
     private void cbListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListaActionPerformed
         // TODO add your handling code here:
+        try{
+            String seleccionado = (String) cbLista.getSelectedItem();
+            String sql = "SELECT * FROM left4tech.producto WHERE modelo = ?";
+            PreparedStatement InstanciaPreparada = conn.prepareStatement(sql);
+            InstanciaPreparada.setString(1, seleccionado);    
+            ResultSet resultadoSeteado;
+            resultadoSeteado = InstanciaPreparada.executeQuery();
+                        
+                while(resultadoSeteado.next()){
+                txtPrecio.setText(resultadoSeteado.getString("precio"));
+//                txtCantidad.setText(resultadoSeteado.getString("stock"));
+                }
+            
+            } catch (SQLException ex) {
+                Logger.getLogger(venta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+              
     }//GEN-LAST:event_cbListaActionPerformed
 
+        private void cargarLista(){
+        try {
+            String sql = "SELECT modelo FROM left4tech.producto";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            cbLista.removeAllItems();
+            while(rs.next()){
+                cbLista.addItem(rs.getString("modelo"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(venta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-       JOptionPane.showMessageDialog(this, "Los pructos han sido vendido");
+        voucher();
+//        if(voucher().isEmpty()){
+//            System.out.println(error);
+//        }else{
+//            System.out.println(voucher());
+//        }
+                 
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+        voucher();
+    }//GEN-LAST:event_txtPrecioActionPerformed
+
+       private void voucher(){
+         
+         try{
+           if(!obsequiosDatos.osequiosConfigurados()){
+           JOptionPane.showMessageDialog(this, "Debe configurar los obsequios primero",
+                   "Obsequios no configirados", JOptionPane.WARNING_MESSAGE);
+           return;
+           }
+//          obsequios obsequios = new obsequios("", "", "");
+
+          double precio= Double.parseDouble(txtPrecio.getText());
+          int cantidad = Integer.parseInt(txtCantidad.getText());
+          String importeCompra = String.valueOf(precio * cantidad);
+            
+          String obsequioSeleccionado = obsequiosDatos.getObsequioPorCantidad(cantidad);
+            txtBoleta.setText("");              
+            txtBoleta.append("Modelo                             :"+ cbLista.getSelectedItem());
+            txtBoleta.append("\nPrecio                              : "+ txtPrecio.getText());
+            txtBoleta.append("\nCantidad                          : "+ txtCantidad.getText());
+            txtBoleta.append("\nImporte Descuento          : " + 0);
+            txtBoleta.append("\nImporte a Pagar               : "+ importeCompra);
+            txtBoleta.append("\nObsequio                         : " + obsequioSeleccionado);
+            
+         }catch(NumberFormatException e){
+             JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad y precio contengan números válidos",
+                     "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
+         }catch(Exception e){
+             JOptionPane.showMessageDialog(this, "Erros inesperado",
+                     "Error", JOptionPane.ERROR_MESSAGE);
+         } 
+//            return(voucher());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbLista;

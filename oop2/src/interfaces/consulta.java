@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package interfaces;
+
 import java.sql.*;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import metodo.Conexion;
+
 /**
  *
  * @author FRANCIS
@@ -23,6 +25,10 @@ public class consulta extends javax.swing.JPanel {
         conn = conexion.conectar();
         cargarCBLista();
     }
+
+
+    // Variables Swing: JTable nombrado "tablaProductos"
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,93 +118,91 @@ public class consulta extends javax.swing.JPanel {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(labelPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTarjeta_Grafica, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addComponent(labelRam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelProcesador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelAlmacenamiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRam, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelTarjeta_Grafica, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAlmacenamiento)
+                            .addComponent(labelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(75, 75, 75)))
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                    .addComponent(txtPlaca)
+                    .addComponent(cbLista, 0, 315, Short.MAX_VALUE)
                     .addComponent(txtProcesador)
                     .addComponent(txtRam)
                     .addComponent(txtTarjeta_Grafica)
                     .addComponent(txtAlmacenamiento)
                     .addComponent(txtPrecio))
-                .addGap(55, 55, 55))
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitulo)
-                    .addComponent(cbLista, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(labelTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(cbLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPlaca)
-                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(labelTitulo)
+                    .addComponent(cbLista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelProcesador))
-                .addGap(25, 25, 25)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlaca))
+                .addGap(28, 28, 28)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelRam))
-                .addGap(23, 23, 23)
+                    .addComponent(labelProcesador)
+                    .addComponent(txtProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTarjeta_Grafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTarjeta_Grafica))
+                    .addComponent(labelRam)
+                    .addComponent(txtRam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTarjeta_Grafica)
+                    .addComponent(txtTarjeta_Grafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAlmacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAlmacenamiento))
-                .addGap(30, 30, 30)
+                .addGap(38, 38, 38)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPrecio)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPrecio))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -4, 430, 440));
+        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -4, 820, 470));
     }// </editor-fold>//GEN-END:initComponents
 
-    //metodo para que cuando se escoga un modelo sus caracteristicas
-    //se rellenen automaticamente en sus respectivos campos
     private void cbListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListaActionPerformed
         try {
             // TODO add your handling code here:
-            String seleccionado = (String) cbLista.getSelectedItem();
-            String sql = "SELECT * FROM left4tech.producto WHERE modelo =?";
-            PreparedStatement InstanciaPreparada = conn.prepareStatement(sql);
-            InstanciaPreparada.setString(1, seleccionado);
-            ResultSet resultadoSeteado = InstanciaPreparada.executeQuery();
+            String selecionado = (String) cbLista.getSelectedItem();
+            String sql = "Select * from left4tech.producto WHERE modelo =?";
+            PreparedStatement instanciaPreparada = conn.prepareStatement(sql);
+            instanciaPreparada.setString(1,selecionado);
+            ResultSet resultadoSeteado = instanciaPreparada.executeQuery();
             
-            while(resultadoSeteado.next()){
+            
+            while (resultadoSeteado.next()){
                 txtPlaca.setText(resultadoSeteado.getString("placa"));
                 txtProcesador.setText(resultadoSeteado.getString("procesador"));
                 txtRam.setText(resultadoSeteado.getString("ram"));
                 txtTarjeta_Grafica.setText(resultadoSeteado.getString("tarjeta_grafica"));
                 txtAlmacenamiento.setText(resultadoSeteado.getString("almacenamiento"));
-                txtPrecio.setText(resultadoSeteado.getString("precio"));  
+                txtPrecio.setText(resultadoSeteado.getString("precio"));
             }
-            
         } catch (SQLException ex) {
             Logger.getLogger(consulta.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }//GEN-LAST:event_cbListaActionPerformed
-    
+  
     //metodo para que aparezcan los datos de la base de datos en el combo box
     public final void cargarCBLista (){
         try {
