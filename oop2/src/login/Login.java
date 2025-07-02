@@ -4,11 +4,14 @@
  */
 package login;
 //import metodo.metodo;
-import interfaces.inicio;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import metodo.Conexion;
+import Ventanas.inicio;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import clases.inicioSesion;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,12 +22,15 @@ public class Login extends javax.swing.JFrame {
 // metodo me = new metodo();
     
 // se crea dos variables para almacenar la info del mouse cuando haga clic sobre el pane (header)
+    Conexion conexion = new Conexion();
+    Connection conn;
     int xMouse, yMouse;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        conn = conexion.conectar();
         setIconImage(getIconImage());
         // para mas adelante :)
          //me.setimagenLabel(back, "src/com/image/fondo2.poo.jpg");
@@ -55,8 +61,8 @@ public class Login extends javax.swing.JFrame {
         separador2 = new javax.swing.JSeparator();
         paneldentrar = new javax.swing.JPanel();
         entrar = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
-        user = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
         header = new javax.swing.JPanel();
         bt = new javax.swing.JPanel();
         txtX = new javax.swing.JLabel();
@@ -127,35 +133,25 @@ public class Login extends javax.swing.JFrame {
 
         bg.add(paneldentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 100, 40));
 
-        password.setForeground(new java.awt.Color(153, 153, 153));
-        password.setText("********");
-        password.setBorder(null);
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtPassword.setForeground(new java.awt.Color(153, 153, 153));
+        txtPassword.setText("********");
+        txtPassword.setBorder(null);
+        txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                passwordMousePressed(evt);
+                txtPasswordMousePressed(evt);
             }
         });
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        bg.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 260, 30));
+        bg.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 260, 30));
 
-        user.setForeground(new java.awt.Color(153, 153, 153));
-        user.setText("Ingrese su usuario");
-        user.setBorder(null);
-        user.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        txtUsuario.setText("Ingrese su usuario");
+        txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userMousePressed(evt);
+                txtUsuarioMousePressed(evt);
             }
         });
-        user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userActionPerformed(evt);
-            }
-        });
-        bg.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 270, 30));
+        bg.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 270, 30));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -245,13 +241,29 @@ public class Login extends javax.swing.JFrame {
 //                                                        Usuario: """ + user.getText() 
 //                + "\nContraseña: " + String.valueOf(password.getPassword()),
 //                "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE );
-
-        JOptionPane.showMessageDialog(this, "SESION EXITOSA");
-        inicio Inicio_Ventana = new inicio();
-        Inicio_Ventana.setVisible(true);
+       String usuario = txtUsuario.getText();
+       String contraseña = new String(txtPassword.getPassword());
+       
+       inicioSesion logeo = new inicioSesion();
+       
+       boolean acceso = logeo.consultaInicioSesion(usuario, contraseña);
+       if(acceso){
+           JOptionPane.showMessageDialog(this, "Bienvenido, " + usuario ,
+                   "Sesión Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                   inicio Inicio_Ventana = new inicio();
+                   Inicio_Ventana.setVisible(true);
         dispose();
-    }//GEN-LAST:event_entrarMouseClicked
+       }else{
+           JOptionPane.showMessageDialog(this, "Credenciales incorrectas",
+                   "Advertencia", JOptionPane.NO_OPTION);
+           
+       }
 
+
+//        JOptionPane.showMessageDialog(this, "SESION EXITOSA");
+    }//GEN-LAST:event_entrarMouseClicked
+   
+    
     //cuando el mouse entra al pane el color cambie 
     private void entrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseEntered
         // TODO add your handling code here:
@@ -268,38 +280,29 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarMouseExited
 
     //para quitar el texto en el text area de usuarios
-    private void userMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMousePressed
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
         // TODO add your handling code here:
-        if(user.getText().equals("Ingrese su usuario")){
-                user.setText("");
-                user.setForeground(Color.black);
+        if(txtUsuario.getText().equals("Ingrese su usuario")){
+                txtUsuario.setText("");
+                txtUsuario.setForeground(Color.black);
         }
-        if(String.valueOf(password.getPassword()).isEmpty() ){
-                password.setText("********");
-                password.setForeground(Color.gray);
+        if(String.valueOf(txtPassword.getPassword()).isEmpty() ){
+                txtPassword.setText("********");
+                txtPassword.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_userMousePressed
+    }//GEN-LAST:event_txtUsuarioMousePressed
 
-    private void passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMousePressed
+    private void txtPasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMousePressed
         // TODO add your handling code here:+
-        if(String.valueOf(password.getPassword()).equals("********")){
-            password.setText("");
-            password.setForeground(Color.black);
+        if(String.valueOf(txtPassword.getPassword()).equals("********")){
+            txtPassword.setText("");
+            txtPassword.setForeground(Color.black);
         }
-       if(user.getText().isEmpty()){
-           user.setText("Ingrese su usuario");
-           user.setForeground(Color.gray);
+       if(txtUsuario.getText().isEmpty()){
+           txtUsuario.setText("Ingrese su usuario");
+           txtUsuario.setForeground(Color.gray);
        }
-    }//GEN-LAST:event_passwordMousePressed
-
-    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_userActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
+    }//GEN-LAST:event_txtPasswordMousePressed
 
     private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
         // TODO add your handling code here:
@@ -372,12 +375,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel entrar;
     private javax.swing.JPanel header;
     private javax.swing.JPanel paneldentrar;
-    private javax.swing.JPasswordField password;
     private javax.swing.JSeparator separador1;
     private javax.swing.JSeparator separador2;
     private javax.swing.JLabel titulo;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsuario;
     private javax.swing.JLabel txtX;
-    private javax.swing.JTextField user;
     private javax.swing.JLabel usuart;
     // End of variables declaration//GEN-END:variables
 }

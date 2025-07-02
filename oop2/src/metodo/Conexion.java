@@ -23,16 +23,18 @@ public class Conexion {
     String driver="com.mysql.cj.jdbc.Driver";
     Connection conn=null;
 
-    public Connection conectar () {
-        try {
-            Class.forName(driver);
-            conn= DriverManager.getConnection(url+db, user, password);
-//            JOptionPane.showMessageDialog(null, "Se conecto a "+db);
-        } catch (SQLException |ClassNotFoundException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return conn;
+public Connection conectar () {
+    try {
+        Class.forName(driver);
+        conn = DriverManager.getConnection(url + db, user, password);
+        System.out.println("+ Conexión exitosa a la base de datos " + db);
+    } catch (SQLException | ClassNotFoundException ex) {
+        System.out.println("- Error de conexión: " + ex.getMessage());
+        Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return conn;
+}
+
         
 }
     
