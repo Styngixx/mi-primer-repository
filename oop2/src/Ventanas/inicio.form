@@ -42,7 +42,7 @@
     <Container class="javax.swing.JPanel" name="fondo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="67" green="67" red="a" type="rgb"/>
         </Property>
       </Properties>
 
@@ -198,7 +198,7 @@
         <Container class="javax.swing.JPanel" name="header">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="39" green="39" red="e" type="rgb"/>
             </Property>
           </Properties>
           <Events>
@@ -230,7 +230,7 @@
             <Container class="javax.swing.JPanel" name="bt">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="39" green="39" red="e" type="rgb"/>
                 </Property>
               </Properties>
 

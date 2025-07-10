@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package login;
-//import metodo.metodo;
+
 import java.sql.*;
 import metodo.Conexion;
 import Ventanas.inicio;
@@ -19,9 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
     // La clave para hacer diseños libres es establecer el absolute layout
-// metodo me = new metodo();
-    
-// se crea dos variables para almacenar la info del mouse cuando haga clic sobre el pane (header)
+    // se crea dos variables para almacenar la info del mouse cuando haga clic sobre el pane (header)
     Conexion conexion = new Conexion();
     Connection conn;
     int xMouse, yMouse;
@@ -31,10 +25,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         conn = conexion.conectar();
-        setIconImage(getIconImage());
-        // para mas adelante :)
-         //me.setimagenLabel(back, "src/com/image/fondo2.poo.jpg");
-        
+        setIconImage(getIconImage());        
     }
         @Override
         public final  Image getIconImage () {
@@ -235,12 +226,6 @@ public class Login extends javax.swing.JFrame {
     //tambien entre al programa y posterior se cierre la interfaz de login :)
     private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
         // TODO add your handling code here:
-       //esperaaaaaa 
-//        JOptionPane.showMessageDialog(this, """
-//                                                        Intento de login con los datos: 
-//                                                        Usuario: """ + user.getText() 
-//                + "\nContraseña: " + String.valueOf(password.getPassword()),
-//                "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE );
        String usuario = txtUsuario.getText();
        String contraseña = new String(txtPassword.getPassword());
        
@@ -256,11 +241,7 @@ public class Login extends javax.swing.JFrame {
        }else{
            JOptionPane.showMessageDialog(this, "Credenciales incorrectas",
                    "Advertencia", JOptionPane.NO_OPTION);
-           
        }
-
-
-//        JOptionPane.showMessageDialog(this, "SESION EXITOSA");
     }//GEN-LAST:event_entrarMouseClicked
    
     

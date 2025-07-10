@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
+
 import interfaces_Paneles.consulta;
 import interfaces_Paneles.lista;
 import interfaces_Paneles.venta;
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -22,8 +17,6 @@ import javax.swing.JPanel;
  * @author FRANCIS
  */
 public final class inicio extends javax.swing.JFrame {
-
-// y así con los que uses
 
         int xMouse, yMouse;
     /**
@@ -36,10 +29,6 @@ public final class inicio extends javax.swing.JFrame {
         SetImageLabel(logo, "src/images/logo_empresa.jpeg");
         //setear el logo en la barra d tareas
         setIconImage(getIconImage());
-//        setLabel(logo, "src/images/logo_POO.jpg");
-        CardLayout cardLayout = new CardLayout();
-        JPanel mainPanel = new JPanel(cardLayout);
-
         lista lista = new lista();
         mostrarPanel(lista);
     }
@@ -84,7 +73,7 @@ public final class inicio extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        fondo.setBackground(new java.awt.Color(255, 255, 255));
+        fondo.setBackground(new java.awt.Color(10, 103, 103));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -167,7 +156,7 @@ public final class inicio extends javax.swing.JFrame {
         });
         fondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 80, 30));
 
-        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.setBackground(new java.awt.Color(14, 57, 57));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -179,7 +168,7 @@ public final class inicio extends javax.swing.JFrame {
             }
         });
 
-        bt.setBackground(new java.awt.Color(255, 255, 255));
+        bt.setBackground(new java.awt.Color(14, 57, 57));
 
         txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtX.setText("X");
@@ -315,12 +304,12 @@ public final class inicio extends javax.swing.JFrame {
     private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
         // TODO add your handling code here:
         bt.setBackground(Color.red);
-        txtX.setForeground(Color.white);
+        txtX.setForeground(Color.WHITE);
     }//GEN-LAST:event_txtXMouseEntered
 
     private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
         // TODO add your handling code here:
-        bt.setBackground(Color.white);
+        bt.setBackground(new Color(14,57,57));
         txtX.setForeground(Color.black);
         
     }//GEN-LAST:event_txtXMouseExited
@@ -328,10 +317,6 @@ public final class inicio extends javax.swing.JFrame {
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         // TODO add your handling code here:
         // sirve para mover la ventana a donde queramos con el mouse
-        //        int x = evt.getXOnScreen();
-        //        int y = evt.getYOnScreen();
-        //
-        //        this.setLocation(x - xMouse, y - yMouse);
         int x = evt.getXOnScreen(), y =evt.getYOnScreen();
         this.setLocation( x- xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
@@ -346,8 +331,7 @@ public final class inicio extends javax.swing.JFrame {
     private void labelConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelConsultarMouseClicked
         // TODO add your handling code here:
        consulta consulta = new consulta();
-//        c.setVisible(true);
-        mostrarPanel(consulta);
+       mostrarPanel(consulta);
     }//GEN-LAST:event_labelConsultarMouseClicked
 
     private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
@@ -361,7 +345,6 @@ public final class inicio extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         venta venta = new venta();
-        //        c.setVisible(true);
         mostrarPanel(venta);
     }//GEN-LAST:event_jLabel2MouseClicked
 

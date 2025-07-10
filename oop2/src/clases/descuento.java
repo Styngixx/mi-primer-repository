@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clases;
 
 /**
@@ -16,18 +12,6 @@ public class descuento {
     //Falta agregar una wea pal descuento xddd
     //private static double cuartoDescuento =0.150;
 
-    public static double getPrimerDescuento() {
-        return primerDescuento;
-    }
-
-    public static double getSegundoDescuento() {
-        return segundoDescuento;
-    }
-
-    public static double getTercerDescuento() {
-        return tercerDescuento;
-    }
-    
     public static void setPrimerDescuento(double primerDescuento) {
         descuento.primerDescuento = primerDescuento;
     }
@@ -39,7 +23,26 @@ public class descuento {
     public static void setTercerDescuento(double tercerDescuento) {
         descuento.tercerDescuento = tercerDescuento;
     }
+
+    public static void setTodoDescuento (double desc1, double desc2, double desc3){
+        primerDescuento = desc1;
+        segundoDescuento = desc2;
+        tercerDescuento = desc3;
+    }
     
+    
+    public static double getPrimerDescuento() {
+        return primerDescuento;
+    }
+
+    public static double getSegundoDescuento() {
+        return segundoDescuento;
+    }
+
+    public static double getTercerDescuento() {
+        return tercerDescuento;
+    }
+
     //metodo para dar el descuento adecuado
     public static double getDescuentoPorCantidad (int cantidad){
         if(cantidad >= 1 && cantidad <= 5){
@@ -52,13 +55,4 @@ public class descuento {
             return 0;
         }
     }
-    
-    
-    
-       
-    //metodo para calcular el monto de descuento 
-//    public static double montoDescuentoTotal (double ){
-//        
-//    }
-//
 }
