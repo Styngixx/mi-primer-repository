@@ -39,50 +39,61 @@ public class venta extends javax.swing.JPanel {
         txtBoleta = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(14, 26, 36));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelModelo.setForeground(new java.awt.Color(255, 255, 255));
         labelModelo.setText("Modelo");
-        jPanel1.add(labelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, -1));
+        jPanel1.add(labelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
+        cbLista.setBackground(new java.awt.Color(153, 153, 153));
         cbLista.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        cbLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbListaActionPerformed(evt);
             }
         });
-        jPanel1.add(cbLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 260, -1));
+        jPanel1.add(cbLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 280, 30));
 
         labelPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         labelPrecio.setText("Precio(S/)");
-        jPanel1.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 80, 20));
+        jPanel1.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 30));
 
+        txtPrecio.setEditable(false);
+        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        txtPrecio.setEnabled(false);
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 240, -1));
+        txtPrecio.setOpaque(true);
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 180, 30));
 
         labelCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelCantidad.setForeground(new java.awt.Color(255, 255, 255));
         labelCantidad.setText("Cantidad");
-        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 70, 20));
+        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 30));
 
+        txtCantidad.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 240, -1));
+        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 30));
 
         txtBoleta.setEditable(false);
         txtBoleta.setBackground(new java.awt.Color(255, 255, 255));
         txtBoleta.setColumns(20);
-        txtBoleta.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtBoleta.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
         txtBoleta.setForeground(new java.awt.Color(0, 0, 0));
         txtBoleta.setRows(5);
+        txtBoleta.setWrapStyleWord(true);
         scroll.setViewportView(txtBoleta);
 
-        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 680, 240));
+        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 270));
 
+        jPanel2.setBackground(new java.awt.Color(0, 65, 86));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(14, 26, 36));
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vender");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,10 +118,7 @@ public class venta extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 80, 30));
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -172,9 +180,13 @@ public class venta extends javax.swing.JPanel {
                    "Obsequios no configirados", JOptionPane.WARNING_MESSAGE);
            return;
            }
-           
+
           double precio= Double.parseDouble(txtPrecio.getText());
           int cantidad = Integer.parseInt(txtCantidad.getText());
+         if(cantidad == 0){
+                   JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
+                     "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
+           }
           String importeCompra = String.valueOf(precio * cantidad);
             
           String obsequioSeleccionado = obsequiosDatos.getObsequioPorCantidad(cantidad);
@@ -196,11 +208,11 @@ public class venta extends javax.swing.JPanel {
             txtBoleta.append("\nObsequio                    : " + obsequioSeleccionado);
             
          }catch(NumberFormatException e){
-             JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad y precio contengan números válidos",
+             JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
                      "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
          }catch(HeadlessException e){
-             JOptionPane.showMessageDialog(this, "Erros inesperado",
-                     "Error", JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(this, "Error inesperado",
+                     "Algo salió mal", JOptionPane.ERROR_MESSAGE);
          } 
     }
 
@@ -213,7 +225,6 @@ public class venta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelModelo;
     private javax.swing.JLabel labelPrecio;

@@ -66,18 +66,21 @@ public class Obsequios_ extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        fondo.setBackground(new java.awt.Color(255, 255, 255));
+        fondo.setBackground(new java.awt.Color(14, 26, 36));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("1 unidad");
         fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 20));
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("2 a 5 unidades");
         fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("6 a más unidades");
         fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
@@ -126,7 +129,7 @@ public class Obsequios_ extends javax.swing.JFrame {
         });
         fondo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 90, -1));
 
-        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.setBackground(new java.awt.Color(26, 46, 63));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -138,7 +141,7 @@ public class Obsequios_ extends javax.swing.JFrame {
             }
         });
 
-        bt.setBackground(new java.awt.Color(255, 255, 255));
+        bt.setBackground(new java.awt.Color(26, 46, 63));
 
         txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtX.setText("X");
@@ -183,6 +186,7 @@ public class Obsequios_ extends javax.swing.JFrame {
         fondo.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 70, 50));
 
         titulo.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Configurar Obsequios");
         fondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 40, 170, 20));
@@ -223,8 +227,8 @@ public class Obsequios_ extends javax.swing.JFrame {
     // para que el efecto desaparezca
     private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
         // TODO add your handling code here:
-        bt.setBackground(Color.white);
-       txtX.setForeground(Color.black);
+        bt.setBackground(new Color(26,46,63));
+       txtX.setForeground(Color.white);
     }//GEN-LAST:event_txtXMouseExited
 
 

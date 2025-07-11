@@ -63,7 +63,7 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setBackground(new java.awt.Color(14, 26, 36));
         bg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 bgMousePressed(evt);
@@ -77,18 +77,20 @@ public class Login extends javax.swing.JFrame {
 
         titulo.setBackground(new java.awt.Color(255, 255, 255));
         titulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        titulo.setForeground(new java.awt.Color(0, 102, 153));
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("INICIAR SESIÓN");
         bg.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 210, 50));
 
         contrat.setBackground(new java.awt.Color(0, 0, 0));
         contrat.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        contrat.setForeground(new java.awt.Color(255, 255, 255));
         contrat.setText("CONTRASEÑA");
         bg.add(contrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 270, 20));
         bg.add(separador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 270, 30));
 
         usuart.setBackground(new java.awt.Color(0, 0, 0));
         usuart.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        usuart.setForeground(new java.awt.Color(255, 255, 255));
         usuart.setText("USUARIO");
         bg.add(usuart, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 270, 20));
         bg.add(separador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 260, 40));
@@ -144,7 +146,7 @@ public class Login extends javax.swing.JFrame {
         });
         bg.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 270, 30));
 
-        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.setBackground(new java.awt.Color(26, 46, 63));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -156,8 +158,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bt.setBackground(new java.awt.Color(255, 255, 255));
+        bt.setBackground(new java.awt.Color(26, 46, 63));
 
+        txtX.setForeground(new java.awt.Color(255, 255, 255));
         txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtX.setText("X");
         txtX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -298,8 +301,8 @@ public class Login extends javax.swing.JFrame {
 
     private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
         // TODO add your handling code here:
-        bt.setBackground(Color.white);
-        txtX.setForeground(Color.black);
+        bt.setBackground(new Color(26,46,63));
+        txtX.setForeground(Color.white);
     }//GEN-LAST:event_txtXMouseExited
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
