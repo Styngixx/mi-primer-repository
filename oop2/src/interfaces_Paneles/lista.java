@@ -122,7 +122,11 @@ public class lista extends javax.swing.JPanel {
             
             while(resultadoSeteado.next()){
               Object []  fila = new Object[10];
+<<<<<<< HEAD
               fila[0] = resultadoSeteado.getInt("id_producto");
+=======
+              fila[0] = resultadoSeteado.getInt("idproducto");
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
               fila[1] = resultadoSeteado.getString("cod_producto");
               fila[2] = resultadoSeteado.getString("modelo");
               fila[3] =  resultadoSeteado.getString("placa");

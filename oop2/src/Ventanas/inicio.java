@@ -1,6 +1,9 @@
 package Ventanas;
 
+<<<<<<< HEAD
 import interfaces_Paneles.Ayuda;
+=======
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
 import interfaces_Paneles.consulta;
 import interfaces_Paneles.lista;
 import interfaces_Paneles.venta;
@@ -68,7 +71,10 @@ public final class inicio extends javax.swing.JFrame {
         labelLista = new javax.swing.JLabel();
         panelVenta = new javax.swing.JPanel();
         labelVenta = new javax.swing.JLabel();
+<<<<<<< HEAD
         jButton1 = new javax.swing.JButton();
+=======
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -276,6 +282,7 @@ public final class inicio extends javax.swing.JFrame {
 
         fondo.add(panelVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
 
+<<<<<<< HEAD
         jButton1.setText("Ayuda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +291,8 @@ public final class inicio extends javax.swing.JFrame {
         });
         fondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 463, 80, 30));
 
+=======
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -371,12 +380,15 @@ public final class inicio extends javax.swing.JFrame {
         mostrarPanel(venta);
     }//GEN-LAST:event_labelVentaMouseClicked
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Ayuda ayuda = new Ayuda();
         mostrarPanel(ayuda);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+=======
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
     /**
      * @param args the command line arguments
      */
@@ -427,7 +439,10 @@ public final class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel contenido;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
+=======
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelConsultar;

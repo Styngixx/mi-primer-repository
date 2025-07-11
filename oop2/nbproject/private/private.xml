@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/FRANCIS/OneDrive/Desktop/Escritorio/Java+/mi-primer-repositorio-git/oop2/src/Ventanas/Descuentos.java</file>
+            <file>file:/C:/Users/FRANCIS/OneDrive/Desktop/Escritorio/Java+/mi-primer-repositorio-git/oop2/src/clases/descuento.java</file>
+            <file>file:/C:/Users/FRANCIS/OneDrive/Desktop/Escritorio/Java+/mi-primer-repositorio-git/oop2/src/login/Login.java</file>
+            <file>file:/C:/Users/FRANCIS/OneDrive/Desktop/Escritorio/Java+/mi-primer-repositorio-git/oop2/src/interfaces_Paneles/venta.java</file>
+        </group>
+>>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
     </open-files>
 </project-private>
