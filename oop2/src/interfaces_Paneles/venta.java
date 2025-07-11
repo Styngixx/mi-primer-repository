@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import metodo.Conexion;
+
 
 /**
  *
@@ -35,12 +37,15 @@ public class venta extends javax.swing.JPanel {
         txtPrecio = new javax.swing.JTextField();
         labelCantidad = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
-        scroll = new javax.swing.JScrollPane();
-        txtBoleta = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Scroll = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+
+        setMinimumSize(new java.awt.Dimension(400, 430));
 
         jPanel1.setBackground(new java.awt.Color(14, 26, 36));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -73,20 +78,8 @@ public class venta extends javax.swing.JPanel {
         labelCantidad.setText("Cantidad");
         jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 30));
 
-        txtCantidad.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 30));
-
-        txtBoleta.setEditable(false);
-        txtBoleta.setBackground(new java.awt.Color(255, 255, 255));
-        txtBoleta.setColumns(20);
-        txtBoleta.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        txtBoleta.setForeground(new java.awt.Color(0, 0, 0));
-        txtBoleta.setRows(5);
-        txtBoleta.setWrapStyleWord(true);
-        scroll.setViewportView(txtBoleta);
-
-        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 270));
 
         jPanel2.setBackground(new java.awt.Color(0, 65, 86));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,15 +113,30 @@ public class venta extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 80, 30));
 
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        Scroll.setViewportView(table);
+
+        jPanel1.add(Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 250));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,55 +180,64 @@ public class venta extends javax.swing.JPanel {
         voucher();                 
     }//GEN-LAST:event_jLabel1MouseClicked
 
-       private void voucher(){
-         
-         try{
-           if(!obsequiosDatos.osequiosConfigurados()){
-           JOptionPane.showMessageDialog(this, "Debe configurar los obsequios primero",
-                   "Obsequios no configirados", JOptionPane.WARNING_MESSAGE);
-           return;
-           }
+    private void voucher() {
+        try {
+        if (!obsequiosDatos.osequiosConfigurados()) {
+            JOptionPane.showMessageDialog(this, "Debe configurar los obsequios primero",
+                    "Obsequios no configurados", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
-          double precio= Double.parseDouble(txtPrecio.getText());
-          int cantidad = Integer.parseInt(txtCantidad.getText());
-         if(cantidad == 0){
-                   JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
-                     "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
-           }
-          String importeCompra = String.valueOf(precio * cantidad);
-            
-          String obsequioSeleccionado = obsequiosDatos.getObsequioPorCantidad(cantidad);
-           double porcentajeDescuento = descuento.getDescuentoPorCantidad(cantidad);
-           double importeDescuento;
-           importeDescuento = (Double.parseDouble(importeCompra) * porcentajeDescuento);
-           importeDescuento = Redondeo(importeDescuento);
-            double importeTotal;
-             importeTotal = (Double.parseDouble(importeCompra)  - importeDescuento);
-             importeTotal = Redondeo(importeTotal);
+        double precio = Double.parseDouble(txtPrecio.getText());
+        int cantidad = Integer.parseInt(txtCantidad.getText());
+        if (cantidad == 0) {
+            JOptionPane.showMessageDialog(this,
+                    "ERROR: Verifique los campos de cantidad contengan valores válidos",
+                    "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        double importeCompra = precio * cantidad;
+        String obsequioSeleccionado = obsequiosDatos.getObsequioPorCantidad(cantidad);
+        double porcentajeDescuento = descuento.getDescuentoPorCantidad(cantidad);
+        double importeDescuento = importeCompra * porcentajeDescuento;
+        importeDescuento = Redondeo(importeDescuento);
+        double importeTotal = importeCompra - importeDescuento;
+        importeTotal = Redondeo(importeTotal);
 
-            txtBoleta.setText("");              
-            txtBoleta.append("Modelo                    :"+ cbLista.getSelectedItem());
-            txtBoleta.append("\nPrecio                    : "+ txtPrecio.getText());
-            txtBoleta.append("\nCantidad                    : "+ txtCantidad.getText());
-            txtBoleta.append("\nImporte Neto                    : "+ importeCompra);
-            txtBoleta.append("\nImporte Descuento                    : " + importeDescuento);
-            txtBoleta.append("\nImporte a Pagar                   : " + importeTotal);
-            txtBoleta.append("\nObsequio                    : " + obsequioSeleccionado);
-            
-         }catch(NumberFormatException e){
-             JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
-                     "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
-         }catch(HeadlessException e){
-             JOptionPane.showMessageDialog(this, "Error inesperado",
-                     "Algo salió mal", JOptionPane.ERROR_MESSAGE);
-         } 
+        // Limpiar las filas anteriores
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setRowCount(0); // Limpiar las filas antes de agregar nuevas
+        modelo.addColumn("Descripción");
+        modelo.addColumn("");
+        int code = 9;
+ 
+        modelo.addRow(new Object[]{"Boleta N°", "B01"+ code});
+        modelo.addRow(new Object[]{"Modelo", cbLista.getSelectedItem()});
+        modelo.addRow(new Object[]{"Precio", txtPrecio.getText()});
+        modelo.addRow(new Object[]{"Cantidad", txtCantidad.getText()});
+        modelo.addRow(new Object[]{"Importe Neto", importeCompra});
+        modelo.addRow(new Object[]{"Importe Descuento", importeDescuento});
+        modelo.addRow(new Object[]{"Importe a pagar", importeTotal});
+        modelo.addRow(new Object[]{"Obsequio", obsequioSeleccionado});
+        table.setModel(modelo);
+
+        } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
+                "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
+        } catch (HeadlessException e) {
+        JOptionPane.showMessageDialog(this, "Error inesperado",
+                "Algo salió mal", JOptionPane.ERROR_MESSAGE);
+        }
     }
+
 
        private double Redondeo (double x){
            return ( Math.round(x * 100)/100.0 );
        }
        
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane Scroll;
     private javax.swing.JComboBox<String> cbLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -228,8 +245,7 @@ public class venta extends javax.swing.JPanel {
     private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelModelo;
     private javax.swing.JLabel labelPrecio;
-    private javax.swing.JScrollPane scroll;
-    private javax.swing.JTextArea txtBoleta;
+    private javax.swing.JTable table;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

@@ -13,12 +13,11 @@ import java.util.logging.Logger;
 public class Conexion {
     String db="left4tech";
     String user="root";
-<<<<<<< HEAD
+
     //contraseña de las pc de laboratorio
     String password="root";
-=======
-    String password="Chap04";
->>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
+
+//    String password="Chap04";
     String url="jdbc:mysql://localhost:3306/";
     String driver="com.mysql.cj.jdbc.Driver";
     Connection conn=null;

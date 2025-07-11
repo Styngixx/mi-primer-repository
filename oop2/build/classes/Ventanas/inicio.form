@@ -381,7 +381,6 @@
             </Component>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ayuda"/>
@@ -395,8 +394,6 @@
             </Constraint>
           </Constraints>
         </Component>
-=======
->>>>>>> 74c5d18464eea2228c1ad9b4ca0aa809dfdd5e78
       </SubComponents>
     </Container>
   </SubComponents>
