@@ -1,11 +1,7 @@
 package interfaces_Paneles;
 
 import java.sql.*;
-import metodo.Conexion;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-//import javax.swing.table.DefaultTableModel;
 import metodo.Conexion;
 
 /**
@@ -16,7 +12,6 @@ public class lista extends javax.swing.JPanel {
                      
     Conexion conexion = new Conexion();
     Connection conn;
-    String jump = "-------------------";
     
     public lista() {
         initComponents();
@@ -55,9 +50,10 @@ public class lista extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mostrarTable, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mostrarTable, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,6 +64,7 @@ public class lista extends javax.swing.JPanel {
 
         fondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 110, 30));
 
+        table.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -130,6 +127,8 @@ public class lista extends javax.swing.JPanel {
             modelo.addRow(new Object[]{
                 "Almacenamiento", resultadoSeteado.getString("almacenamiento")});
             modelo.addRow(new Object[]{
+                "Stock", resultadoSeteado.getString("stock")});
+            modelo.addRow(new Object[]{
                 "Precio", "S/ " + resultadoSeteado.getString("precio")});
             modelo.addRow(new Object[]{
                 });
@@ -144,38 +143,7 @@ public class lista extends javax.swing.JPanel {
            System.out.println("Error al mostrar los productos: " +ex.getMessage());
         }
         
-    }
-//        try { 
-//            txtArea.setText("PRODUCTOS DISPONIBLES\n\n");            
-//            String sql = "Select * from left4tech.producto";
-//            Statement declaracion = conn.createStatement();
-//            ResultSet resultoSeteado = declaracion.executeQuery(sql);
-//            
-//            int id = 1;
-//            while (resultoSeteado.next()){
-//                print(jump);
-//                print("Producto N° " + id);
-//                print("Modelo: " + resultoSeteado.getString("modelo"));
-//                print("Codigo Producto: " + resultoSeteado.getString("cod_producto"));
-//                print("Placa: " + resultoSeteado.getString("placa"));
-//                print("Procesador: " + resultoSeteado.getString("procesador"));
-//                print("Ram: " + resultoSeteado.getString("ram"));
-//                print("Tarjeta Gráfica: " + resultoSeteado.getString("tarjeta_grafica"));
-//                print("Almacenamiento: " + resultoSeteado.getString("almacenamiento"));
-//                print("Precio: " + resultoSeteado.getString("precio"));
-//                print(jump);
-//                id++;
-//            }
-//            
-//        } catch (SQLException ex) {
-//            System.out.println("Error al mostrar los productos: " +ex.getMessage());
-//        }
-//    }
-//    private void print(String cad){
-//        txtArea.append(cad + "\n");
-//    }
-
-    
+    }   
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -186,51 +154,3 @@ public class lista extends javax.swing.JPanel {
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
-
-//        DefaultTableModel modelo = new DefaultTableModel();
-//        modelo.addColumn("Id");
-//        modelo.addColumn("Codigo");
-//        modelo.addColumn("Producto");
-//        modelo.addColumn("Placa");
-//        modelo.addColumn("Procesador");
-//        modelo.addColumn("Ram");
-//        modelo.addColumn("Tarjeta gráfica");
-//        modelo.addColumn("Almacenamiento");
-//        modelo.addColumn("Precio");
-//        modelo.addColumn("Stock");
-//        
-//        Conexion conexion = new Conexion();
-//        Connection conn = conexion.conectar();
-//        String sql = "Select * from left4tech.producto";
-//       
-//        try{
-//            Statement declaracion =  conn.createStatement();
-//            ResultSet resultadoSeteado = declaracion.executeQuery(sql);
-//            
-//            while(resultadoSeteado.next()){
-//              Object []  fila = new Object[10];
-//
-//              fila[0] = resultadoSeteado.getInt("id_producto");
-//
-////              fila[0] = resultadoSeteado.getInt("idproducto");
-//
-//              fila[1] = resultadoSeteado.getString("cod_producto");
-//              fila[2] = resultadoSeteado.getString("modelo");
-//              fila[3] =  resultadoSeteado.getString("placa");
-//              fila[4] = resultadoSeteado.getString("procesador");
-//              fila[5] = resultadoSeteado.getString("ram");
-//              fila[6] = resultadoSeteado.getString("tarjeta_grafica");
-//              fila[7] = resultadoSeteado.getString("almacenamiento");
-//              fila[8] = resultadoSeteado.getDouble("precio");
-//              fila[9] = resultadoSeteado.getInt("stock");
-//              modelo.addRow(fila);  
-//            }
-//            table.setModel(modelo);
-//            
-//            resultadoSeteado.close();
-//            declaracion.close();
-//            conn.close();
-//            
-//        }catch(SQLException e){
-//            System.out.println("Error al mostrar los productos: " +e.getMessage());
-//        }

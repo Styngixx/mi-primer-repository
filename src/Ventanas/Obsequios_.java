@@ -57,8 +57,6 @@ public class Obsequios_ extends javax.swing.JFrame {
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         header = new javax.swing.JPanel();
-        bt = new javax.swing.JPanel();
-        txtX = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
 
@@ -72,44 +70,44 @@ public class Obsequios_ extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("1 unidad");
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 20));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("2 a 5 unidades");
-        fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("6 a más unidades");
-        fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 120, 30));
 
-        txtObsequio1.setForeground(new java.awt.Color(153, 153, 153));
+        txtObsequio1.setForeground(new java.awt.Color(0, 0, 0));
         txtObsequio1.setText("Obsequio 1");
         txtObsequio1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtObsequio1MousePressed(evt);
             }
         });
-        fondo.add(txtObsequio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 170, -1));
+        fondo.add(txtObsequio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 170, 30));
 
-        txtObsequio2.setForeground(new java.awt.Color(153, 153, 153));
+        txtObsequio2.setForeground(new java.awt.Color(0, 0, 0));
         txtObsequio2.setText("Obsequio 2");
         txtObsequio2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtObsequio2MousePressed(evt);
             }
         });
-        fondo.add(txtObsequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, -1));
+        fondo.add(txtObsequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, 30));
 
-        txtObsequio3.setForeground(new java.awt.Color(153, 153, 153));
+        txtObsequio3.setForeground(new java.awt.Color(0, 0, 0));
         txtObsequio3.setText("Obsequio 3");
         txtObsequio3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtObsequio3MousePressed(evt);
             }
         });
-        fondo.add(txtObsequio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 170, -1));
+        fondo.add(txtObsequio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 202, 170, 30));
 
         btnAceptar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnAceptar.setText("Guardar");
@@ -118,7 +116,7 @@ public class Obsequios_ extends javax.swing.JFrame {
                 btnAceptarActionPerformed(evt);
             }
         });
-        fondo.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 90, -1));
+        fondo.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 100, 30));
 
         btnCancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -127,7 +125,7 @@ public class Obsequios_ extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        fondo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 90, -1));
+        fondo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 100, 30));
 
         header.setBackground(new java.awt.Color(26, 46, 63));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -141,45 +139,15 @@ public class Obsequios_ extends javax.swing.JFrame {
             }
         });
 
-        bt.setBackground(new java.awt.Color(26, 46, 63));
-
-        txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtX.setText("X");
-        txtX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtXMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtXMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtXMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btLayout = new javax.swing.GroupLayout(bt);
-        bt.setLayout(btLayout);
-        btLayout.setHorizontalGroup(
-            btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-        );
-        btLayout.setVerticalGroup(
-            btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addContainerGap(488, Short.MAX_VALUE)
-                .addComponent(bt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 30));
@@ -189,7 +157,7 @@ public class Obsequios_ extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Configurar Obsequios");
-        fondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 40, 170, 20));
+        fondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 170, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,26 +178,6 @@ public class Obsequios_ extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    //evento que ayuda a cerrar la ventana 
-    private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_txtXMouseClicked
-
-    // para que el mouse entre en el pane y de un efecto de color rojo y la x blanco
-    private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
-        // TODO add your handling code here:
-        bt.setBackground(Color.red);
-        txtX.setForeground(Color.white);
-    }//GEN-LAST:event_txtXMouseEntered
-
-    // para que el efecto desaparezca
-    private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
-        // TODO add your handling code here:
-        bt.setBackground(new Color(26,46,63));
-       txtX.setForeground(Color.white);
-    }//GEN-LAST:event_txtXMouseExited
 
 
     //Almacenar la pocision del mouse en eje x - eje y
@@ -364,7 +312,6 @@ public class Obsequios_ extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bt;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JPanel fondo;
@@ -377,6 +324,5 @@ public class Obsequios_ extends javax.swing.JFrame {
     private javax.swing.JTextField txtObsequio1;
     private javax.swing.JTextField txtObsequio2;
     private javax.swing.JTextField txtObsequio3;
-    private javax.swing.JLabel txtX;
     // End of variables declaration//GEN-END:variables
 }

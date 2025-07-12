@@ -1,5 +1,7 @@
 package interfaces_Paneles;
 
+import clases.ArregloBoleta;
+import clases.Boleta;
 import clases.descuento;
 import clases.obsequiosDatos;
 import java.awt.HeadlessException;
@@ -11,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import metodo.Conexion;
 
-
 /**
  *
  * @author FRANCIS
@@ -19,6 +20,9 @@ import metodo.Conexion;
 public class venta extends javax.swing.JPanel {
     Conexion conexion = new Conexion();
     Connection conn;
+    int contador = 0;
+    ArregloBoleta resumen = new ArregloBoleta();
+    Boleta bolet = new Boleta();
     
     public venta() {
         initComponents();
@@ -34,13 +38,15 @@ public class venta extends javax.swing.JPanel {
         labelModelo = new javax.swing.JLabel();
         cbLista = new javax.swing.JComboBox<>();
         labelPrecio = new javax.swing.JLabel();
-        txtPrecio = new javax.swing.JTextField();
-        labelCantidad = new javax.swing.JLabel();
+        txtStock = new javax.swing.JTextField();
+        labelStock = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelVender = new javax.swing.JPanel();
+        labelVender = new javax.swing.JLabel();
         Scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        labelCantidad = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(400, 430));
 
@@ -67,52 +73,53 @@ public class venta extends javax.swing.JPanel {
         labelPrecio.setText("Precio(S/)");
         jPanel1.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 30));
 
-        txtPrecio.setEditable(false);
-        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
-        txtPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        txtPrecio.setOpaque(true);
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 180, 30));
+        txtStock.setEditable(false);
+        txtStock.setBackground(new java.awt.Color(255, 255, 255));
+        txtStock.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        txtStock.setOpaque(true);
+        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 30));
 
-        labelCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        labelCantidad.setText("Cantidad");
-        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 30));
+        labelStock.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelStock.setForeground(new java.awt.Color(255, 255, 255));
+        labelStock.setText("Stock");
+        jPanel1.add(labelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 30));
 
         txtCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 30));
+        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 180, 30));
 
-        jPanel2.setBackground(new java.awt.Color(0, 65, 86));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        panelVender.setBackground(new java.awt.Color(0, 65, 86));
+        panelVender.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(14, 26, 36));
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Vender");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelVender.setBackground(new java.awt.Color(14, 26, 36));
+        labelVender.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        labelVender.setForeground(new java.awt.Color(255, 255, 255));
+        labelVender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelVender.setText("Vender");
+        labelVender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelVender.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                labelVenderMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
+        panelVender.setLayout(panelVenderLayout);
+        panelVenderLayout.setHorizontalGroup(
+            panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVenderLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labelVender, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        panelVenderLayout.setVerticalGroup(
+            panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVenderLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labelVender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 80, 30));
+        jPanel1.add(panelVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 80, 30));
 
+        table.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -126,7 +133,18 @@ public class venta extends javax.swing.JPanel {
         ));
         Scroll.setViewportView(table);
 
-        jPanel1.add(Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 250));
+        jPanel1.add(Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 350, 200));
+
+        labelCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        labelCantidad.setText("Cantidad");
+        jPanel1.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 30));
+
+        txtPrecio.setEditable(false);
+        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        txtPrecio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        txtPrecio.setOpaque(true);
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,7 +157,7 @@ public class venta extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void cbListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListaActionPerformed
         // TODO add your handling code here:
         try{
@@ -152,6 +170,7 @@ public class venta extends javax.swing.JPanel {
                         
                 while(resultadoSeteado.next()){
                 txtPrecio.setText(resultadoSeteado.getString("precio"));
+                txtStock.setText(resultadoSeteado.getString("stock"));
                 }
             
             } catch (SQLException ex) {
@@ -175,11 +194,36 @@ public class venta extends javax.swing.JPanel {
         }
     }
     
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void labelVenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVenderMouseClicked
         // TODO add your handling code here:
-        voucher();                 
-    }//GEN-LAST:event_jLabel1MouseClicked
+        logistica();
+        voucher();         
+    }//GEN-LAST:event_labelVenderMouseClicked
+    
+    //resta la cantidad ingresada con el stock establecido
+    private void logistica(){
+    try{
+        int cantidad = Integer.parseInt(txtCantidad.getText());
+        int stock = Integer.parseInt(txtStock.getText());
+        
+        if(cantidad > stock){
+        JOptionPane.showMessageDialog(this, "Error en la cantidad ingresada",
+                    "Valor incorrecto", JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        
+        int nuevoStock = stock - cantidad;
+        txtStock.setText(String.valueOf(nuevoStock)); 
 
+        
+        }catch(NumberFormatException ex){
+        JOptionPane.showMessageDialog(this, "Error inesperado",
+                "Algo salió mal", JOptionPane.ERROR_MESSAGE);
+            }
+       }       
+    
+    
+    //printea el voucher
     private void voucher() {
         try {
         if (!obsequiosDatos.osequiosConfigurados()) {
@@ -204,7 +248,8 @@ public class venta extends javax.swing.JPanel {
         importeDescuento = Redondeo(importeDescuento);
         double importeTotal = importeCompra - importeDescuento;
         importeTotal = Redondeo(importeTotal);
-
+        
+     
         // Limpiar las filas anteriores
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setRowCount(0); // Limpiar las filas antes de agregar nuevas
@@ -222,6 +267,13 @@ public class venta extends javax.swing.JPanel {
         modelo.addRow(new Object[]{"Obsequio", obsequioSeleccionado});
         table.setModel(modelo);
 
+        
+            Boleta Boleta = new Boleta(precio, cantidad, porcentajeDescuento);
+            resumen.agregarBoleta(Boleta);
+            
+            contador++;
+             comprobarContador(contador);
+             
         } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(this, "ERROR: Verifique los campos de cantidad contengan valores válidos",
                 "ERROR EN DATOS", JOptionPane.ERROR_MESSAGE);
@@ -229,6 +281,18 @@ public class venta extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Error inesperado",
                 "Algo salió mal", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+        void mensaje(String e){
+        JOptionPane.showMessageDialog(null, e);
+    }   
+    
+    private void comprobarContador(int contador){
+             if (contador % 5 == 0) {           
+                mensaje("********* RESUMEN DE VENTAS N°"+contador+" *********\n"+
+                        "Total acumulado a pagar: S/ " + resumen.sumarImportePagar()+"\n"+
+                        "Porcentaje de la cuota diaria : "+resumen.PorcentajeDiario()+"%"+"\n");    
+            } 
     }
 
 
@@ -239,14 +303,16 @@ public class venta extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Scroll;
     private javax.swing.JComboBox<String> cbLista;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelModelo;
     private javax.swing.JLabel labelPrecio;
+    private javax.swing.JLabel labelStock;
+    private javax.swing.JLabel labelVender;
+    private javax.swing.JPanel panelVender;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 }
