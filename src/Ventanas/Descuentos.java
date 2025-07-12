@@ -52,10 +52,11 @@ public class Descuentos extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
+        bt = new javax.swing.JPanel();
+        txtX = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtDescuento4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -70,7 +71,7 @@ public class Descuentos extends javax.swing.JFrame {
         jLabel1.setText("1 a 5 unidades");
         fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 140, 30));
 
-        txtDescuento1.setForeground(new java.awt.Color(0, 0, 0));
+        txtDescuento1.setForeground(new java.awt.Color(153, 153, 153));
         txtDescuento1.setText("Descuento 1");
         txtDescuento1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -84,7 +85,7 @@ public class Descuentos extends javax.swing.JFrame {
         jLabel2.setText("6 a 10 unidades");
         fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 100, 30));
 
-        txtDescuento2.setForeground(new java.awt.Color(0, 0, 0));
+        txtDescuento2.setForeground(new java.awt.Color(153, 153, 153));
         txtDescuento2.setText("Descuento 2");
         txtDescuento2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -98,7 +99,7 @@ public class Descuentos extends javax.swing.JFrame {
         jLabel3.setText("11 a 15 unidades");
         fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, 30));
 
-        txtDescuento3.setForeground(new java.awt.Color(0, 0, 0));
+        txtDescuento3.setForeground(new java.awt.Color(153, 153, 153));
         txtDescuento3.setText("Descuento 3");
         txtDescuento3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -115,7 +116,7 @@ public class Descuentos extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        fondo.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 90, 30));
+        fondo.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 80, 30));
         fondo.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 60));
 
         header.setBackground(new java.awt.Color(26, 46, 63));
@@ -130,15 +131,46 @@ public class Descuentos extends javax.swing.JFrame {
             }
         });
 
+        bt.setBackground(new java.awt.Color(26, 46, 63));
+
+        txtX.setForeground(new java.awt.Color(255, 255, 255));
+        txtX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtX.setText("X");
+        txtX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtXMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtXMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtXMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btLayout = new javax.swing.GroupLayout(bt);
+        bt.setLayout(btLayout);
+        btLayout.setHorizontalGroup(
+            btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        btLayout.setVerticalGroup(
+            btLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 481, Short.MAX_VALUE)
+                .addComponent(bt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(bt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 30));
@@ -153,7 +185,7 @@ public class Descuentos extends javax.swing.JFrame {
         jLabel5.setText("más de 15 unidades");
         fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
 
-        txtDescuento4.setForeground(new java.awt.Color(0, 0, 0));
+        txtDescuento4.setForeground(new java.awt.Color(153, 153, 153));
         txtDescuento4.setText("Descuento 4");
         txtDescuento4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -161,16 +193,6 @@ public class Descuentos extends javax.swing.JFrame {
             }
         });
         fondo.add(txtDescuento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 180, 30));
-
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        fondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,6 +207,23 @@ public class Descuentos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_txtXMouseClicked
+
+    private void txtXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseEntered
+        // TODO add your handling code here:
+        bt.setBackground(Color.red);
+        txtX.setForeground(Color.white);
+    }//GEN-LAST:event_txtXMouseEntered
+
+    private void txtXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseExited
+        // TODO add your handling code here:
+        bt.setBackground(new Color(26,46,63));
+        txtX.setForeground(Color.black);
+    }//GEN-LAST:event_txtXMouseExited
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         // TODO add your handling code here:
@@ -307,11 +346,6 @@ public class Descuentos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -329,10 +363,10 @@ public class Descuentos extends javax.swing.JFrame {
     }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bt;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -343,5 +377,6 @@ public class Descuentos extends javax.swing.JFrame {
     private javax.swing.JTextField txtDescuento2;
     private javax.swing.JTextField txtDescuento3;
     private javax.swing.JTextField txtDescuento4;
+    private javax.swing.JLabel txtX;
     // End of variables declaration//GEN-END:variables
 }

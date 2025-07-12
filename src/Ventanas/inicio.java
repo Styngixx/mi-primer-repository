@@ -47,25 +47,22 @@ public final class inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
-        labelTitulo = new javax.swing.JLabel();
-        panelLogo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
+        btnDescuento = new javax.swing.JButton();
         contenido = new javax.swing.JPanel();
         panelConsultar = new javax.swing.JPanel();
         labelConsultar = new javax.swing.JLabel();
+        btnObsequios = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         bt = new javax.swing.JPanel();
         txtX = new javax.swing.JLabel();
         panelLista = new javax.swing.JPanel();
         labelLista = new javax.swing.JLabel();
-        panelAyuda = new javax.swing.JPanel();
-        labelAyuda = new javax.swing.JLabel();
-        panelVenta1 = new javax.swing.JPanel();
-        labelVenta1 = new javax.swing.JLabel();
-        panelDescuento1 = new javax.swing.JPanel();
-        labelDescuento1 = new javax.swing.JLabel();
-        panelObsequios1 = new javax.swing.JPanel();
-        labelObsequios1 = new javax.swing.JLabel();
+        panelVenta = new javax.swing.JPanel();
+        labelVenta = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -75,23 +72,37 @@ public final class inicio extends javax.swing.JFrame {
         fondo.setBackground(new java.awt.Color(14, 26, 36));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTitulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setText("LEFT4TECH");
-        fondo.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 140, 40));
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("LEFT4TECH");
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, 40));
 
-        javax.swing.GroupLayout panelLogoLayout = new javax.swing.GroupLayout(panelLogo);
-        panelLogo.setLayout(panelLogoLayout);
-        panelLogoLayout.setHorizontalGroup(
-            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(logo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
-        panelLogoLayout.setVerticalGroup(
-            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
-        fondo.add(panelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 80));
+        fondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 80));
+
+        btnDescuento.setBackground(new java.awt.Color(51, 51, 51));
+        btnDescuento.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
+        btnDescuento.setForeground(new java.awt.Color(255, 255, 255));
+        btnDescuento.setText("Ajuste");
+        btnDescuento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnDescuento.setBorderPainted(false);
+        btnDescuento.setFocusPainted(false);
+        btnDescuento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescuentoActionPerformed(evt);
+            }
+        });
+        fondo.add(btnDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 30));
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -135,6 +146,19 @@ public final class inicio extends javax.swing.JFrame {
         );
 
         fondo.add(panelConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
+
+        btnObsequios.setBackground(new java.awt.Color(51, 51, 51));
+        btnObsequios.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
+        btnObsequios.setForeground(new java.awt.Color(255, 255, 255));
+        btnObsequios.setText("Obsequios");
+        btnObsequios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnObsequios.setBorderPainted(false);
+        btnObsequios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObsequiosActionPerformed(evt);
+            }
+        });
+        fondo.add(btnObsequios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 80, 30));
 
         header.setBackground(new java.awt.Color(26, 46, 63));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -220,121 +244,39 @@ public final class inicio extends javax.swing.JFrame {
 
         fondo.add(panelLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, 30));
 
-        panelAyuda.setBackground(new java.awt.Color(0, 65, 86));
+        panelVenta.setBackground(new java.awt.Color(0, 65, 86));
 
-        labelAyuda.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        labelAyuda.setForeground(new java.awt.Color(255, 255, 255));
-        labelAyuda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAyuda.setText("Ayuda");
-        labelAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelVenta.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
+        labelVenta.setForeground(new java.awt.Color(255, 255, 255));
+        labelVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelVenta.setText("Venta");
+        labelVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelAyudaMouseClicked(evt);
+                labelVentaMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout panelAyudaLayout = new javax.swing.GroupLayout(panelAyuda);
-        panelAyuda.setLayout(panelAyudaLayout);
-        panelAyudaLayout.setHorizontalGroup(
-            panelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAyudaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout panelVentaLayout = new javax.swing.GroupLayout(panelVenta);
+        panelVenta.setLayout(panelVentaLayout);
+        panelVentaLayout.setHorizontalGroup(
+            panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
-        panelAyudaLayout.setVerticalGroup(
-            panelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAyudaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        panelVentaLayout.setVerticalGroup(
+            panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        fondo.add(panelAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 80, 30));
+        fondo.add(panelVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
 
-        panelVenta1.setBackground(new java.awt.Color(0, 65, 86));
-
-        labelVenta1.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        labelVenta1.setForeground(new java.awt.Color(255, 255, 255));
-        labelVenta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelVenta1.setText("Venta");
-        labelVenta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelVenta1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelVenta1MouseClicked(evt);
+        jButton1.setText("Ayuda");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelVenta1Layout = new javax.swing.GroupLayout(panelVenta1);
-        panelVenta1.setLayout(panelVenta1Layout);
-        panelVenta1Layout.setHorizontalGroup(
-            panelVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelVenta1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-        );
-        panelVenta1Layout.setVerticalGroup(
-            panelVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelVenta1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        fondo.add(panelVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 30));
-
-        panelDescuento1.setBackground(new java.awt.Color(0, 65, 86));
-
-        labelDescuento1.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        labelDescuento1.setForeground(new java.awt.Color(255, 255, 255));
-        labelDescuento1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelDescuento1.setText("Descuento");
-        labelDescuento1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelDescuento1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelDescuento1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelDescuento1Layout = new javax.swing.GroupLayout(panelDescuento1);
-        panelDescuento1.setLayout(panelDescuento1Layout);
-        panelDescuento1Layout.setHorizontalGroup(
-            panelDescuento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDescuento1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelDescuento1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelDescuento1Layout.setVerticalGroup(
-            panelDescuento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDescuento1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelDescuento1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        fondo.add(panelDescuento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 30));
-
-        panelObsequios1.setBackground(new java.awt.Color(0, 65, 86));
-
-        labelObsequios1.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 14)); // NOI18N
-        labelObsequios1.setForeground(new java.awt.Color(255, 255, 255));
-        labelObsequios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelObsequios1.setText("Obsequios");
-        labelObsequios1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelObsequios1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelObsequios1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelObsequios1Layout = new javax.swing.GroupLayout(panelObsequios1);
-        panelObsequios1.setLayout(panelObsequios1Layout);
-        panelObsequios1Layout.setHorizontalGroup(
-            panelObsequios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelObsequios1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelObsequios1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelObsequios1Layout.setVerticalGroup(
-            panelObsequios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelObsequios1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelObsequios1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        fondo.add(panelObsequios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 80, 30));
+        fondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 463, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -350,6 +292,12 @@ public final class inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescuentoActionPerformed
+        // TODO add your handling code here:
+        Descuentos ventanaDescuentos = new Descuentos();
+        ventanaDescuentos.setVisible(true);
+    }//GEN-LAST:event_btnDescuentoActionPerformed
+
     private void mostrarPanel(JPanel p){
         p.setSize(400, 430);
         p.setLocation(0,0);
@@ -359,6 +307,12 @@ public final class inicio extends javax.swing.JFrame {
         contenido.revalidate();
         contenido. repaint(); 
 }
+    private void btnObsequiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObsequiosActionPerformed
+        // TODO add your handling code here:
+        Obsequios_ obsequios_Ventana =  new Obsequios_();
+        obsequios_Ventana.setVisible(true);
+    }//GEN-LAST:event_btnObsequiosActionPerformed
+
     private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
         // TODO add your handling code here:
         System.exit(0);
@@ -405,29 +359,17 @@ public final class inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_labelListaMouseClicked
 
-    private void labelVenta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVenta1MouseClicked
+    private void labelVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVentaMouseClicked
         // TODO add your handling code here:
         venta venta = new venta();
         mostrarPanel(venta);
-    }//GEN-LAST:event_labelVenta1MouseClicked
+    }//GEN-LAST:event_labelVentaMouseClicked
 
-    private void labelAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAyudaMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Ayuda ayuda = new Ayuda();
         mostrarPanel(ayuda);
-    }//GEN-LAST:event_labelAyudaMouseClicked
-
-    private void labelDescuento1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelDescuento1MouseClicked
-        // TODO add your handling code here:
-        Descuentos descuento = new Descuentos();
-        descuento.setVisible(true);
-    }//GEN-LAST:event_labelDescuento1MouseClicked
-
-    private void labelObsequios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObsequios1MouseClicked
-        // TODO add your handling code here:
-        Obsequios_ obsequios = new Obsequios_();
-        obsequios.setVisible(true);
-    }//GEN-LAST:event_labelObsequios1MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     public static void main(String args[]) {
@@ -472,24 +414,21 @@ public final class inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bt;
+    private javax.swing.JButton btnDescuento;
+    private javax.swing.JButton btnObsequios;
     private javax.swing.JPanel contenido;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel labelAyuda;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelConsultar;
-    private javax.swing.JLabel labelDescuento1;
     private javax.swing.JLabel labelLista;
-    private javax.swing.JLabel labelObsequios1;
-    private javax.swing.JLabel labelTitulo;
-    private javax.swing.JLabel labelVenta1;
+    private javax.swing.JLabel labelVenta;
     private javax.swing.JLabel logo;
-    private javax.swing.JPanel panelAyuda;
     private javax.swing.JPanel panelConsultar;
-    private javax.swing.JPanel panelDescuento1;
     private javax.swing.JPanel panelLista;
-    private javax.swing.JPanel panelLogo;
-    private javax.swing.JPanel panelObsequios1;
-    private javax.swing.JPanel panelVenta1;
+    private javax.swing.JPanel panelVenta;
     private javax.swing.JLabel txtX;
     // End of variables declaration//GEN-END:variables
 

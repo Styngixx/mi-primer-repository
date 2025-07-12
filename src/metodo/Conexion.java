@@ -15,9 +15,9 @@ public class Conexion {
     String user="root";
 
     //contraseña de las pc de laboratorio
-//    String password="root";
+    String password="root";
 
-    String password="Chap04";
+//    String password="Chap04";
     String url="jdbc:mysql://localhost:3306/";
     String driver="com.mysql.cj.jdbc.Driver";
     Connection conn=null;
