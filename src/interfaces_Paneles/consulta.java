@@ -3,7 +3,7 @@ package interfaces_Paneles;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import metodo.Conexion;
+import database.Conexion;
 
 /**
  *

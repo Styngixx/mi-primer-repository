@@ -13,11 +13,10 @@ import javax.swing.JOptionPane;
  *
  * @author FRANCIS
  */
-public class Obsequios_ extends javax.swing.JFrame {
+public class Obsequios_ extends javax.swing.JFrame {   
     
     // se crea dos variables paera almacenar la info del mouse cuando haga clic sobre el panel (header)
-    int xMouse, yMouse;
-    
+    int xMouse, yMouse;    
     public Obsequios_() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -29,8 +28,7 @@ public class Obsequios_ extends javax.swing.JFrame {
         public final  Image getIconImage () {
         Image retValue = Toolkit.getDefaultToolkit().getImage
                                 (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
-        return retValue;
-    }
+        return retValue;}
     
 // cargar obsequios previamente guardados
     private void cargarObsequiosGuardados (){
@@ -172,14 +170,6 @@ public class Obsequios_ extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-     //evento que ayuda a cerrar la ventana 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-
     //Almacenar la pocision del mouse en eje x - eje y
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
         // TODO add your handling code here:
@@ -241,7 +231,6 @@ public class Obsequios_ extends javax.swing.JFrame {
                 txtObsequio1.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtObsequio3MousePressed
-
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         //validar que los campos esten completos xdd
@@ -266,6 +255,10 @@ public class Obsequios_ extends javax.swing.JFrame {
         dispose();
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     
     /**

@@ -2,7 +2,7 @@ package interfaces_Paneles;
 
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-import metodo.Conexion;
+import database.Conexion;
 
 /**
  *
@@ -76,6 +76,7 @@ public class lista extends javax.swing.JPanel {
 
             }
         ));
+        table.setEnabled(false);
         Scroll.setViewportView(table);
 
         fondo.add(Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 360, 350));

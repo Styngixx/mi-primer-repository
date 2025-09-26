@@ -1,4 +1,4 @@
-package metodo;
+package database;
 
 /**
  *
@@ -9,11 +9,12 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class metodo {
+public class icon {
     public void setimagenLabel(JLabel label, String root){
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance
-                    (label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
+                    (label.getWidth(), 
+                     label.getHeight(), Image.SCALE_SMOOTH));
         label.setIcon(icon);
     }
 }

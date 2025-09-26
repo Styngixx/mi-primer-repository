@@ -1,7 +1,7 @@
 package login;
 
 import java.sql.*;
-import metodo.Conexion;
+import database.Conexion;
 import Ventanas.inicio;
 import java.awt.Color;
 import java.awt.Image;

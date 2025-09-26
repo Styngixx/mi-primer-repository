@@ -11,18 +11,17 @@ import java.sql.Connection;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import metodo.Conexion;
+import database.Conexion;
 
 /**
  *
  * @author FRANCIS
  */
 public class venta extends javax.swing.JPanel {
-    Conexion conexion = new Conexion();
+     Conexion conexion = new Conexion();
     Connection conn;
-    int contador = 0;
-    ArregloBoleta resumen = new ArregloBoleta();
-    Boleta bolet = new Boleta();
+    int contador = 0;      
+    ArregloBoleta resumen = new ArregloBoleta();      
     
     public venta() {
         initComponents();
@@ -131,6 +130,7 @@ public class venta extends javax.swing.JPanel {
 
             }
         ));
+        table.setEnabled(false);
         Scroll.setViewportView(table);
 
         jPanel1.add(Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 350, 200));
@@ -204,19 +204,19 @@ public class venta extends javax.swing.JPanel {
     private void logistica(){
     try{
         int cantidad = Integer.parseInt(txtCantidad.getText());
-        int stock = Integer.parseInt(txtStock.getText());
+        int stock = Integer.parseInt(txtStock.getText());    
         
         if(cantidad > stock){
         JOptionPane.showMessageDialog(this, "Error en la cantidad ingresada",
                     "Valor incorrecto", JOptionPane.WARNING_MESSAGE);
         return;
-        }
+        }   
         
         int nuevoStock = stock - cantidad;
         txtStock.setText(String.valueOf(nuevoStock)); 
-
         
-        }catch(NumberFormatException ex){
+        }
+    catch(NumberFormatException ex){
         JOptionPane.showMessageDialog(this, "Error inesperado",
                 "Algo salió mal", JOptionPane.ERROR_MESSAGE);
             }

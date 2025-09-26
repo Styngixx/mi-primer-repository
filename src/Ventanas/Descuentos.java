@@ -1,41 +1,31 @@
 package Ventanas;
 
 import clases.descuento;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
+import java.awt.*;
+import javax.swing.*;
 /**
  *
  * @author FRANCIS
  */
-public class Descuentos extends javax.swing.JFrame {
-  
+public class Descuentos extends javax.swing.JFrame {  
+    
     int xMouse, yMouse;
     public Descuentos() {
         initComponents();
         this.setLocationRelativeTo(this);
         setIconImage(getIconImage());
         SetImageLabel(logo, "src/images/logo_empresa.jpeg");
-        cargarDescuentos();
-    }
-
+        cargarDescuentos();}
         @Override
         public final Image getIconImage () {
         Image retValue = Toolkit.getDefaultToolkit().getImage
                                 (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
-        return retValue;
-    }
+        return retValue;}
     private void cargarDescuentos(){
        txtDescuento1.setText(String.valueOf(descuento.getPrimerDescuento()));
        txtDescuento2.setText(String.valueOf(descuento.getSegundoDescuento()));
        txtDescuento3.setText(String.valueOf(descuento.getTercerDescuento()));
-       txtDescuento4.setText(String.valueOf(descuento.getCuartoDescuento()));
-    }
+       txtDescuento4.setText(String.valueOf(descuento.getCuartoDescuento()));}
     
     
     @SuppressWarnings("unchecked")
@@ -55,7 +45,7 @@ public class Descuentos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtDescuento4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -162,15 +152,15 @@ public class Descuentos extends javax.swing.JFrame {
         });
         fondo.add(txtDescuento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 180, 30));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(102, 102, 102));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        fondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 90, 30));
+        fondo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,7 +272,6 @@ public class Descuentos extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        //         TODO add your handling code here:
         double desc1 = Double.parseDouble(txtDescuento1.getText().trim());
         double desc2 = Double.parseDouble(txtDescuento2.getText().trim());
         double desc3 = Double.parseDouble(txtDescuento3.getText().trim());
@@ -303,14 +292,12 @@ public class Descuentos extends javax.swing.JFrame {
             "3° Descuento (11 -15 unidades): " + desc3 + "\n" +
                     "4 Descuento (más de 15 unidades): " + desc4 , "Descuentos Guardados",
             JOptionPane.INFORMATION_MESSAGE);
-        }
-        dispose();
+        }dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -329,10 +316,10 @@ public class Descuentos extends javax.swing.JFrame {
     }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

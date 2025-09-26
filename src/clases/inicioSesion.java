@@ -1,7 +1,7 @@
 package clases;
 
 import java.sql.*;
-import metodo.Conexion;
+import database.Conexion;
 /**
  *
  * @author FRANCIS
@@ -11,7 +11,7 @@ public class inicioSesion {
         public boolean consultaInicioSesion(String usuario, String contraseña){
             
            if(usuario == null || contraseña == null || usuario.isEmpty() || contraseña.isEmpty()){
-               return false;
+               return false; // no setea nada, es decir que no da acceso al usuario.
            } 
             String sql = "Select * from usuarios_info WHERE nombre_usuario =? AND contraseña =?";
 
@@ -22,7 +22,7 @@ public class inicioSesion {
             ps.setString(2, contraseña);
 
             try (ResultSet rs = ps.executeQuery()) {
-                return rs.next(); 
+                return rs.next(); //un salto para que se ejecute de forma correcta la consulta SQL.
             }
 
         } catch (SQLException e) {

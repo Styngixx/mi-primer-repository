@@ -1,28 +1,17 @@
 package Ventanas;
 
 
-import interfaces_Paneles.Ayuda;
-
-import interfaces_Paneles.consulta;
-import interfaces_Paneles.lista;
-import interfaces_Paneles.venta;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import interfaces_Paneles.*;
+import java.awt.*;
+import javax.swing.*;
 /**
  *
  * @author FRANCIS
  */
 public final class inicio extends javax.swing.JFrame {
-
+    
         int xMouse, yMouse;
-
+        
     public inicio() {
         initComponents();
         //setear el logo
@@ -32,15 +21,14 @@ public final class inicio extends javax.swing.JFrame {
         setIconImage(getIconImage());
         lista lista = new lista();
         mostrarPanel(lista);
-    }
+    }    
     
     //Icono de Jframe form
     @Override
         public final Image getIconImage () {
         Image retValue = Toolkit.getDefaultToolkit().getImage
-                                (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
-        return retValue;
-    }
+         (ClassLoader.getSystemResource("images/logo_empresa.jpeg"));
+        return retValue;}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -396,33 +384,26 @@ public final class inicio extends javax.swing.JFrame {
        consulta consulta = new consulta();
        mostrarPanel(consulta);
     }//GEN-LAST:event_labelConsultarMouseClicked
-
     private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
         // TODO add your handling code here:
         lista lista = new lista();
-//        c.setVisible(true);
         mostrarPanel(lista);
-
     }//GEN-LAST:event_labelListaMouseClicked
-
     private void labelVenta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVenta1MouseClicked
         // TODO add your handling code here:
         venta venta = new venta();
         mostrarPanel(venta);
     }//GEN-LAST:event_labelVenta1MouseClicked
-
     private void labelAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAyudaMouseClicked
         // TODO add your handling code here:
         Ayuda ayuda = new Ayuda();
         mostrarPanel(ayuda);
     }//GEN-LAST:event_labelAyudaMouseClicked
-
     private void labelDescuento1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelDescuento1MouseClicked
         // TODO add your handling code here:
         Descuentos descuento = new Descuentos();
         descuento.setVisible(true);
     }//GEN-LAST:event_labelDescuento1MouseClicked
-
     private void labelObsequios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelObsequios1MouseClicked
         // TODO add your handling code here:
         Obsequios_ obsequios = new Obsequios_();
